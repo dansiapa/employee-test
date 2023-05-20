@@ -36,7 +36,7 @@ public class OtherController {
                              @RequestBody SalariesModel model) {
         SalariesModel salaries = otherService.addNewSalaries(model);
         if (Objects.nonNull(salaries)) {
-            HandlerResponse.responseSuccessOK(response, "Success add new Titles");
+            HandlerResponse.responseSuccessOK(response, "Success add new Salary");
         } else {
             HandlerResponse.responseBadRequest(response, "005", "Something Wrong");
         }
@@ -47,7 +47,7 @@ public class OtherController {
                                @RequestBody DeptEmpModel model) {
         DeptEmpModel deptEmpModel = otherService.addNewDeptEmp(model);
         if (Objects.nonNull(deptEmpModel)) {
-            HandlerResponse.responseSuccessOK(response, "Success add new Titles");
+            HandlerResponse.responseSuccessOK(response, "Success add new Dept Emp");
         } else {
             HandlerResponse.responseBadRequest(response, "005", "Something Wrong");
         }
@@ -58,7 +58,7 @@ public class OtherController {
                               @RequestBody DeptManagerModel model) {
         DeptManagerModel deptManagerModel = otherService.addNewDeptManager(model);
         if (Objects.nonNull(deptManagerModel)) {
-            HandlerResponse.responseSuccessOK(response, "Success add new Titles");
+            HandlerResponse.responseSuccessOK(response, "Success add new Dept Manager");
         } else {
             HandlerResponse.responseBadRequest(response, "005", "Something Wrong");
         }

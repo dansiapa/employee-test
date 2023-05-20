@@ -34,14 +34,9 @@ public class DepartmentsService {
 
     public DepartmentsModel addNewDepartment(DepartmentsModel item){
         DepartmentsModel departmentsModel = new DepartmentsModel();
-        DepartmentsModel getDepartment = repository.findByDeptNo(item.getDeptNo());
-        if (Objects.nonNull(getDepartment)){
-            return null;
-        }else{
-            departmentsModel.setDeptNo(item.getDeptNo());
-            departmentsModel.setDeptName(item.getDeptName());
-            return repository.save(departmentsModel);
-        }
+        departmentsModel.setDeptNo(item.getDeptNo());
+        departmentsModel.setDeptName(item.getDeptName());
+        return repository.save(departmentsModel);
     }
 
     public List<DepartmentsDTO> getAllDepartments(){
@@ -51,7 +46,7 @@ public class DepartmentsService {
     public List<DeptManagerDTO> getDeptManagerByFromDate(LocalDate fromDate){
         List<DeptManagerModel> findDeptManagerByFromDate = deptManagerRepository.findByFromDate(fromDate);
         List<DeptManagerDTO> listDeptManager = new ArrayList<>();
-        if (findDeptManagerByFromDate != null){
+        if (Objects.nonNull(findDeptManagerByFromDate)){
             DeptManagerDTO model = new DeptManagerDTO();
             findDeptManagerByFromDate.forEach(deptManager ->{
 
@@ -66,6 +61,7 @@ public class DepartmentsService {
                 employeesDTO.setNo(getEmployee.getEmpNo());
                 employeesDTO.setBornDate(getEmployee.getBirthDate());
                 employeesDTO.setName(getEmployee.getFirstName());
+                employeesDTO.setLastName(getEmployee.getLastName());
                 employeesDTO.setGender(getEmployee.getGender());
                 employeesDTO.setHireAt(getEmployee.getHireDate());
                 model.setEmpNo(employeesDTO);
@@ -75,14 +71,17 @@ public class DepartmentsService {
 
             });
             listDeptManager.add(model);
+            return listDeptManager;
+        } else {
+            return null;
         }
-        return listDeptManager;
+
     }
 
     public List<DeptEmpDTO> getDeptEmpByFromDate(LocalDate fromDate){
         List<DeptEmpModel> findDeptEmpByFromDate = deptEmpRepository.findByFromDate(fromDate);
         List<DeptEmpDTO> listDeptEmp = new ArrayList<>();
-        if (findDeptEmpByFromDate != null){
+        if (Objects.nonNull(findDeptEmpByFromDate)){
             DeptEmpDTO model = new DeptEmpDTO();
             findDeptEmpByFromDate.forEach(deptEmp ->{
 
@@ -91,6 +90,7 @@ public class DepartmentsService {
                 employeesDTO.setNo(getEmployee.getEmpNo());
                 employeesDTO.setBornDate(getEmployee.getBirthDate());
                 employeesDTO.setName(getEmployee.getFirstName());
+                employeesDTO.setLastName(getEmployee.getLastName());
                 employeesDTO.setGender(getEmployee.getGender());
                 employeesDTO.setHireAt(getEmployee.getHireDate());
                 model.setEmpNo(employeesDTO);
@@ -106,8 +106,11 @@ public class DepartmentsService {
 
             });
             listDeptEmp.add(model);
+            return listDeptEmp;
+        } else {
+            return null;
         }
-        return listDeptEmp;
+
     }
 
     private DepartmentsDTO convertDTO(DepartmentsModel item){

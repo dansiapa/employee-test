@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TitlesRepository extends JpaRepository<TitlesModel,Integer> {
+public interface TitlesRepository extends JpaRepository<TitlesModel,String> {
     @Query("Select tm From TitlesModel tm Where tm.empNo = :no")
     List<TitlesModel> findByEmpNo(Integer no);
 }

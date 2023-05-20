@@ -3,6 +3,7 @@ package com.employee.technical.controller;
 import com.employee.technical.dto.DetailEmployeeDTO;
 import com.employee.technical.dto.EmployeesDTO;
 import com.employee.technical.model.EmployeesModel;
+import com.employee.technical.repository.EmployeesRepository;
 import com.employee.technical.response.DataResponse;
 import com.employee.technical.response.HandlerResponse;
 import com.employee.technical.service.EmployeeService;
@@ -19,17 +20,19 @@ import java.util.Objects;
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private EmployeesRepository employeesRepository;
 
     @PostMapping("/add-employee")
     public void addNewDepartment(HttpServletRequest request, HttpServletResponse response,
                                  @RequestBody EmployeesModel model) {
+        EmployeesModel get = employeesRepository.getByEmpNo(model.getEmpNo());
         EmployeesModel employee = employeeService.addNewEmployee(model);
-        EmployeesDTO get = employeeService.getEmployee(model.getEmpNo());
-        if (!model.getGender().equals("M") && !model.getGender().equals("F")) {
-            HandlerResponse.responseBadRequest(response, "003", "Please input Gender only M or F");
-        } else if (Objects.nonNull(get)) {
+        if (Objects.nonNull(get)) {
             HandlerResponse.responseBadRequest(response, "001", "Duplicate Data");
-        } else if (Objects.nonNull(employee)) {
+        } else if (Objects.isNull(employee)) {
+            HandlerResponse.responseBadRequest(response, "003", "Please input Gender only M or F");
+        } else {
             HandlerResponse.responseSuccessOK(response, "Success add new Employee");
         }
     }
@@ -44,38 +47,39 @@ public class EmployeeController {
 
     @GetMapping("/get-employee")
     public void getEmployee(HttpServletRequest request, HttpServletResponse response,
-                            @RequestParam("no")Integer no) {
+                            @RequestParam("no") Integer no) {
         EmployeesDTO employeesDTO = employeeService.getEmployee(no);
         if (Objects.nonNull(employeesDTO)) {
             DataResponse<EmployeesDTO> dataResponse = new DataResponse<>();
             dataResponse.setData(employeesDTO);
             HandlerResponse.responseSuccessWithData(response, dataResponse);
         } else {
-            HandlerResponse.responseBadRequest(response,"002","Data Not Found");
+            HandlerResponse.responseBadRequest(response, "002", "Data Not Found");
         }
     }
 
-    @PutMapping("/update-employee")
+    @PutMapping("/update-employee/{no}")
     public void updateEmployee(HttpServletRequest request, HttpServletResponse response,
-                                @RequestBody EmployeesModel item) {
-        EmployeesModel employee = employeeService.updateEmployee(item);
+                               @PathVariable(value = "no") Integer no,
+                               @RequestBody EmployeesModel item) {
+        EmployeesModel employee = employeeService.updateEmployee(no, item);
         if (Objects.nonNull(employee)) {
             HandlerResponse.responseSuccessOK(response, "Success Update Employee");
         } else {
-            HandlerResponse.responseBadRequest(response,"002","Data Not Found");
+            HandlerResponse.responseBadRequest(response, "002", "Data Not Found");
         }
     }
 
     @GetMapping("/get-employee-detail")
     public void getDetailEmployee(HttpServletRequest request, HttpServletResponse response,
-                                  @RequestParam("no")Integer no) {
+                                  @RequestParam("no") Integer no) {
         DetailEmployeeDTO detailEmployeeDTO = employeeService.getDetailEmployee(no);
         if (Objects.nonNull(detailEmployeeDTO)) {
             DataResponse<DetailEmployeeDTO> dataResponse = new DataResponse<>();
             dataResponse.setData(detailEmployeeDTO);
             HandlerResponse.responseSuccessWithData(response, dataResponse);
         } else {
-            HandlerResponse.responseBadRequest(response,"002","Data Not Found");
+            HandlerResponse.responseBadRequest(response, "002", "Data Not Found");
         }
     }
 }

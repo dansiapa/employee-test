@@ -1,14 +1,13 @@
 package com.employee.technical.service;
 
 import com.employee.technical.model.*;
-import com.employee.technical.repository.DeptEmpRepository;
-import com.employee.technical.repository.DeptManagerRepository;
-import com.employee.technical.repository.SalariesRepository;
-import com.employee.technical.repository.TitlesRepository;
+import com.employee.technical.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Service
 public class OtherService {
@@ -20,6 +19,8 @@ public class OtherService {
     private TitlesRepository titlesRepository;
     @Autowired
     private SalariesRepository salariesRepository;
+    @Autowired
+    private EmployeesRepository employeesRepository;
 
     public SalariesModel addNewSalaries(SalariesModel item) {
         SalariesModel add = new SalariesModel();

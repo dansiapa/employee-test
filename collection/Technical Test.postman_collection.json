@@ -1,0 +1,1217 @@
+{
+	"info": {
+		"_postman_id": "36d28603-ca72-4d3b-86c3-60427b689455",
+		"name": "Technical Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Departments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/department/all-departments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"department",
+						"all-departments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/department/all-departments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"all-departments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 16:46:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"data\": [\n        {\n            \"no\": \"D021\",\n            \"name\": \"Information and Technology\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Dept Manager",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/department/all-departments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"department",
+						"all-departments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/department/dept-manager?fromDate=10-12-2021",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"dept-manager"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "10-12-2021"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 19:58:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"data\": [\n        {\n            \"empNo\": {\n                \"no\": 123,\n                \"bornDate\": \"10-12-1997\",\n                \"name\": \"Rangga\",\n                \"gender\": \"M\",\n                \"hireAt\": \"21-05-2023\"\n            },\n            \"dept\": {\n                \"no\": \"D021\",\n                \"name\": \"Information and Technology\"\n            },\n            \"fromDate\": \"10-12-2021\",\n            \"toDate\": \"31-12-2022\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Dept Emp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/department/all-departments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"department",
+						"all-departments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/department/dept-emp?fromDate=10-12-2021",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"department",
+								"dept-emp"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "10-12-2021"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 20:09:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"data\": [\n        {\n            \"dept\": {\n                \"no\": \"D021\",\n                \"name\": \"Information and Technology\"\n            },\n            \"empNo\": {\n                \"no\": 123,\n                \"bornDate\": \"10-12-1997\",\n                \"name\": \"Rangga\",\n                \"gender\": \"M\",\n                \"hireAt\": \"21-05-2023\"\n            },\n            \"fromDate\": \"10-12-2021\",\n            \"toDate\": \"31-12-2022\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add New Department",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deptNo\":\"D021\",\r\n    \"deptName\":\"Information and Technology\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/department/add-departments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"department",
+						"add-departments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"deptNo\":\"D021\",\r\n    \"deptName\":\"Information and Technology\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/department/add-departments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"add-departments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 16:13:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success Add New Department\"\n}"
+				},
+				{
+					"name": "Duplicate Data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"deptNo\":\"D021\",\r\n    \"deptName\":\"Information and Technology\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/department/add-departments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"department",
+								"add-departments"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 16:39:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"FAILED\",\n    \"errorCode\": \"001\",\n    \"message\": \"Duplicate Data\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add New Titles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"empNo\":123,\r\n    \"title\":\"Java Developer\",\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/other/add-titles",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"other",
+						"add-titles"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNo\":123,\r\n    \"title\":\"Java Developer\",\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/other/add-titles",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"other",
+								"add-titles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 17:21:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success add new Titles\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add New Salaries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"empNo\":123,\r\n    \"salary\":5000000,\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2021\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/other/add-salary",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"other",
+						"add-salary"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNo\":123,\r\n    \"salary\":5000000,\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2021\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/other/add-salary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"other",
+								"add-salary"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 17:26:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success add new Salary\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add New Dept Emp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"empNo\":123,\r\n    \"deptNo\":\"D021\",\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/other/add-dept-emp",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"other",
+						"add-dept-emp"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNo\":123,\r\n    \"deptNo\":\"D021\",\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/other/add-dept-emp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"other",
+								"add-dept-emp"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 17:29:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success add new Dept Emp\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add New Dept Manager",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deptNo\":\"D021\",\r\n    \"empNo\":123,\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/other/add-dept-manager",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"other",
+						"add-dept-manager"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"deptNo\":\"D021\",\r\n    \"empNo\":123,\r\n    \"fromDate\":\"10-12-2021\",\r\n    \"toDate\":\"31-12-2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/other/add-dept-manager",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"other",
+								"add-dept-manager"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 18:03:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success add new Dept Manager\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add New Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"empNo\":124,\r\n    \"birthDate\":\"10-12-1997\",\r\n    \"firstName\":\"Rangga\",\r\n    \"gender\":\"Male\",\r\n    \"hireDate\":\"21-05-2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/employee/add-employee",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"add-employee"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNo\":123,\r\n    \"birthDate\":\"10-12-1997\",\r\n    \"firstName\":\"Rangga\",\r\n    \"gender\":\"M\",\r\n    \"hireDate\":\"21-05-2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/employee/add-employee",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"add-employee"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 18:17:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success add new Employee\"\n}"
+				},
+				{
+					"name": "Duplicate Data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNo\":123,\r\n    \"birthDate\":\"10-12-1997\",\r\n    \"firstName\":\"Rangga\",\r\n    \"gender\":\"M\",\r\n    \"hireDate\":\"21-05-2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/employee/add-employee",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"add-employee"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 18:17:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"FAILED\",\n    \"errorCode\": \"001\",\n    \"message\": \"Duplicate Data\"\n}"
+				},
+				{
+					"name": "Failed Gender Value",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNo\":124,\r\n    \"birthDate\":\"10-12-1997\",\r\n    \"firstName\":\"Rangga\",\r\n    \"gender\":\"Male\",\r\n    \"hireDate\":\"21-05-2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/employee/add-employee",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"add-employee"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 18:34:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"FAILED\",\n    \"errorCode\": \"003\",\n    \"message\": \"Please input Gender only M or F\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET All Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employee/all-employees",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"all-employees"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/employee/all-employees",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"all-employees"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 20:10:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"data\": [\n        {\n            \"no\": 123,\n            \"bornDate\": \"10-12-1997\",\n            \"name\": \"Rangga\",\n            \"gender\": \"M\",\n            \"hireAt\": \"21-05-2023\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employee/get-employee?no=124",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"get-employee"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "124"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/employee/get-employee?no=123",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"get-employee"
+							],
+							"query": [
+								{
+									"key": "no",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 20:11:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"data\": {\n        \"no\": 123,\n        \"bornDate\": \"10-12-1997\",\n        \"name\": \"Rangga\",\n        \"gender\": \"M\",\n        \"hireAt\": \"21-05-2023\"\n    }\n}"
+				},
+				{
+					"name": "Data Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/employee/get-employee?no=124",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"get-employee"
+							],
+							"query": [
+								{
+									"key": "no",
+									"value": "124"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 20:12:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"FAILED\",\n    \"errorCode\": \"002\",\n    \"message\": \"Data Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET All Employee Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employee/get-employee-detail?no=123",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"get-employee-detail"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/employee/get-employee-detail?no=123",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"get-employee-detail"
+							],
+							"query": [
+								{
+									"key": "no",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 20:13:51 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"data\": {\n        \"no\": 123,\n        \"bornDate\": \"10-12-1997\",\n        \"name\": \"Rangga\",\n        \"gender\": \"M\",\n        \"hireAt\": \"21-05-2023\",\n        \"salaries\": [\n            {\n                \"empNo\": 123,\n                \"salary\": 5000000,\n                \"fromDate\": \"10-12-2021\",\n                \"toDate\": \"31-12-2021\"\n            }\n        ],\n        \"titles\": [\n            {\n                \"empNo\": 123,\n                \"title\": \"Java Developer\",\n                \"fromDate\": \"10-12-2021\",\n                \"toDate\": \"31-12-2022\"\n            }\n        ],\n        \"deptManager\": [\n            {\n                \"deptNo\": \"D021\",\n                \"empNo\": 123,\n                \"fromDate\": \"10-12-2021\",\n                \"toDate\": \"31-12-2022\"\n            }\n        ],\n        \"deptEmp\": [\n            {\n                \"empNo\": 123,\n                \"deptNo\": \"D021\",\n                \"fromDate\": \"10-12-2021\",\n                \"toDate\": \"31-12-2022\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UPDATE Employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"birthDate\":\"10-12-1997\",\r\n    \"firstName\":\"Rangga Dwi Putra\",\r\n    \"gender\":\"M\",\r\n    \"hireDate\":\"21-05-2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/employee/update-employee/123",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employee",
+						"update-employee",
+						"123"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"birthDate\":\"10-12-1997\",\r\n    \"firstName\":\"Rangga Dwi Putra\",\r\n    \"gender\":\"M\",\r\n    \"hireDate\":\"21-05-2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/employee/update-employee/123",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"employee",
+								"update-employee",
+								"123"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 May 2023 20:22:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success Update Employee\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

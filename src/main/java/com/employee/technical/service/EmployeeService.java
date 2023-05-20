@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
-    private static final String SUCCESS_UPDATE = "Success UPDATE" ;
+    private static final String SUCCESS_UPDATE = "Success UPDATE";
     @Autowired
     private EmployeesRepository repository;
     @Autowired
@@ -28,64 +28,68 @@ public class EmployeeService {
     private SalariesRepository salariesRepository;
 
 
-    public EmployeesModel addNewEmployee(EmployeesModel item){
+    public EmployeesModel addNewEmployee(EmployeesModel item) {
         EmployeesModel add = new EmployeesModel();
-        EmployeesModel get = repository.getByEmpNo(item.getEmpNo());
-        if(item.getGender().equals("M")&&item.getGender().equals("F")&& Objects.isNull(get)){
+        if (item.getGender().equals("M") || item.getGender().equals("F")){
             add.setEmpNo(item.getEmpNo());
             add.setBirthDate(item.getBirthDate());
             add.setFirstName(item.getFirstName());
+            add.setLastName(item.getLastName());
             add.setGender(item.getGender());
             add.setHireDate(item.getHireDate());
+            return repository.save(add);
         } else {
             return null;
         }
-        return repository.save(add);
+
     }
 
 
-    public List<EmployeesDTO> getAllEmployees(){
+    public List<EmployeesDTO> getAllEmployees() {
         return repository.findAll().stream().map(this::convertDTO).collect(Collectors.toList());
     }
 
-    public EmployeesDTO getEmployee(Integer no){
+    public EmployeesDTO getEmployee(Integer no) {
         Optional<EmployeesModel> get = repository.findByEmpNo(no);
-        if (get.isPresent()){
+        if (get.isPresent()) {
             return convertDTO(get.get());
-        }else{
+        } else {
             return null;
         }
     }
 
-    public boolean deleteEmployee(Integer no){
-        try{
+    public boolean deleteEmployee(Integer no) {
+        try {
             Optional<EmployeesModel> employeesModel = repository.findByEmpNo(no);
             if (employeesModel.isPresent()) {
                 repository.delete(no);
                 return true;
             }
             return false;
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public EmployeesModel updateEmployee(EmployeesModel item){
-        Optional<EmployeesModel> getEmployee = repository.findByEmpNo(item.getEmpNo());
-        EmployeesModel update  = new EmployeesModel();
-        if (getEmployee.isPresent()){
+    public EmployeesModel updateEmployee(Integer no,EmployeesModel item) {
+        Optional<EmployeesModel> getEmployee = repository.findByEmpNo(no);
+
+        if (getEmployee.isPresent()) {
+            EmployeesModel update = getEmployee.get();
+            update.setEmpNo(getEmployee.get().getEmpNo());
             update.setBirthDate(item.getBirthDate());
             update.setFirstName(item.getFirstName());
+            update.setLastName(item.getLastName());
             update.setGender(item.getGender());
             update.setHireDate(item.getHireDate());
-            repository.save(update);
+            return repository.save(update);
         } else {
             return null;
         }
-        return update;
+
     }
 
-    public DetailEmployeeDTO getDetailEmployee(Integer no){
+    public DetailEmployeeDTO getDetailEmployee(Integer no) {
         Optional<EmployeesModel> getEmployee = repository.findByEmpNo(no);
         List<SalariesModel> getSalaries = salariesRepository.findByEmpNo(no);
         List<TitlesModel> getTitles = titlesRepository.findByEmpNo(no);
@@ -97,17 +101,18 @@ public class EmployeeService {
         List<DeptManagerModel> saveDeptManager = new ArrayList<>();
         List<DeptEmpModel> saveDeptEmp = new ArrayList<>();
         DetailEmployeeDTO dto = new DetailEmployeeDTO();
-        if (getEmployee.isPresent()){
+        if (getEmployee.isPresent()) {
 
             dto.setNo(getEmployee.get().getEmpNo());
             dto.setBornDate(getEmployee.get().getBirthDate());
             dto.setName(getEmployee.get().getFirstName());
+            dto.setLastName(getEmployee.get().getLastName());
             dto.setGender(getEmployee.get().getGender());
             dto.setHireAt(getEmployee.get().getHireDate());
-            if (getSalaries != null){
-                getSalaries.forEach(salaries ->{
+            if (getSalaries != null) {
+                getSalaries.forEach(salaries -> {
                     SalariesModel salariesModel = new SalariesModel();
-                    salariesModel.setEmpNo(salariesModel.getEmpNo());
+                    salariesModel.setEmpNo(salaries.getEmpNo());
                     salariesModel.setSalary(salaries.getSalary());
                     salariesModel.setFromDate(salaries.getFromDate());
                     salariesModel.setToDate(salaries.getToDate());
@@ -115,8 +120,8 @@ public class EmployeeService {
                     saveSalaries.add(salariesModel);
                 });
             }
-            if (getTitles != null){
-                getTitles.forEach(titles ->{
+            if (getTitles != null) {
+                getTitles.forEach(titles -> {
                     TitlesModel titlesModel = new TitlesModel();
                     titlesModel.setEmpNo(titles.getEmpNo());
                     titlesModel.setTitle(titles.getTitle());
@@ -126,8 +131,8 @@ public class EmployeeService {
                     saveTitles.add(titlesModel);
                 });
             }
-            if (getDeptManager != null){
-                getDeptManager.forEach(deptManager ->{
+            if (getDeptManager != null) {
+                getDeptManager.forEach(deptManager -> {
                     DeptManagerModel deptManagerModel = new DeptManagerModel();
                     deptManagerModel.setDeptNo(deptManager.getDeptNo());
                     deptManagerModel.setEmpNo(deptManager.getEmpNo());
@@ -137,8 +142,8 @@ public class EmployeeService {
                     saveDeptManager.add(deptManagerModel);
                 });
             }
-            if (getDeptEmp != null){
-                getDeptEmp.forEach(deptEmp ->{
+            if (getDeptEmp != null) {
+                getDeptEmp.forEach(deptEmp -> {
                     DeptEmpModel deptEmpModel = new DeptEmpModel();
                     deptEmpModel.setEmpNo(deptEmp.getEmpNo());
                     deptEmpModel.setDeptNo(deptEmp.getDeptNo());
@@ -158,11 +163,12 @@ public class EmployeeService {
         return dto;
     }
 
-    public EmployeesDTO convertDTO(EmployeesModel item){
+    public EmployeesDTO convertDTO(EmployeesModel item) {
         EmployeesDTO dto = new EmployeesDTO();
         dto.setNo(item.getEmpNo());
         dto.setBornDate(item.getBirthDate());
         dto.setName(item.getFirstName());
+        dto.setLastName(item.getLastName());
         dto.setGender(item.getGender());
         dto.setHireAt(item.getHireDate());
         return dto;

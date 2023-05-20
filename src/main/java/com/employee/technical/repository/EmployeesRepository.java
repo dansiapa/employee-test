@@ -17,4 +17,6 @@ public interface EmployeesRepository extends JpaRepository<EmployeesModel,Intege
 
     @Query("Delete From EmployeesModel emp where emp.empNo = :no")
     void delete(Integer no);
+
+
 }
